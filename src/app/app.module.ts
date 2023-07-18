@@ -8,6 +8,8 @@ import {AppRoutingModule} from 'src/app/app-routing.module'
 import {AppComponent} from 'src/app/app.component'
 import {AuthModule} from 'src/app/auth/auth.module'
 import {AuthService} from 'src/app/auth/services/auth.service';
+import {EffectsModule} from '@ngrx/effects';
+import {BackendErrorMessagesModule} from './shared/module/backendErrorMessages/backendErrorMessages.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +21,9 @@ import {AuthService} from 'src/app/auth/services/auth.service';
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25
-    })
+    }),
+    EffectsModule.forRoot([]),
+    BackendErrorMessagesModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

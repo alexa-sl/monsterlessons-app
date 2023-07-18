@@ -1,41 +1,45 @@
-<div class="auth-page">
-  <div class="container page">
-    <div class="row">
-      <div class="col-md-6 offset-md-3 col-xs-12">
-        <h1 class="text-xs-center">Sign in</h1>
-        <p class="text-xs-center">
+<div class='auth-page'>
+  <div class='container page'>
+    <div class='row'>
+      <div class='col-md-6 offset-md-3 col-xs-12'>
+        <h1 class='text-xs-center'>Sign in</h1>
+        <p class='text-xs-center'>
           <a routerLink="['/login']">Need an account?</a>
         </p>
-        Backend errors
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <form [formGroup]='form' (ngSubmit)='onSubmit()'>
+          <ml-backend-messages
+            *ngIf='validationErrors$ | async'
+            [backendErrors]='validationErrors$ | async'
+          ></ml-backend-messages>
           <fieldset>
-            <fieldset class="form-group">
+            <fieldset class='form-group'>
               <input
-                type="text"
-                class="form-control form-control-lg"
-                placeholder="Username"
-                formControlName="username">
+                type='text'
+                class='form-control form-control-lg'
+                placeholder='Username'
+                formControlName='username'>
             </fieldset>
-            <fieldset class="form-group">
+            <fieldset class='form-group'>
               <input
-                type="text"
-                class="form-control form-control-lg"
-                placeholder="Email"
-                formControlName="email">
+                type='text'
+                class='form-control form-control-lg'
+                placeholder='Email'
+                formControlName='email'>
             </fieldset>
-            <fieldset class="form-group">
+            <fieldset class='form-group'>
               <input
-                type="password"
-                class="form-control form-control-lg"
-                placeholder="Password"
-                formControlName="password">
+                type='password'
+                class='form-control form-control-lg'
+                placeholder='Password'
+                formControlName='password'>
             </fieldset>
           </fieldset>
           <button
-            class="btn btn-lg btn-primary pull-xs-right"
-            type="submit"
+            class='btn btn-lg btn-primary pull-xs-right'
+            type='submit'
             [disabled]='isSubmitting$ | async'
-          >Submit</button>
+          >Submit
+          </button>
         </form>
       </div>
     </div>
